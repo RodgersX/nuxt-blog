@@ -3,33 +3,14 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9"
-        title="Hello there!"
-        preview-text="This is my first post!"
-      />
-      <PostPreview
-        id="2"
-        thumbnail="https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9"
-        title="Hello there - the second time!"
-        preview-text="This is my second post!"
-      />
-      <PostPreview
-        id="3"
-        thumbnail="https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9"
-        title="Hello!"
-        preview-text="This is my third post!"
-      />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    PostPreview: require('~/components/Posts/PostPreview.vue').default,
+    PostList: require('~/components/Posts/PostList.vue').default,
   },
 }
 </script>

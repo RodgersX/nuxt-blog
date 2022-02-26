@@ -18,7 +18,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'TheHeader',
   components: {
@@ -89,6 +88,7 @@ export default {
 .nav-item a:hover,
 .nav-item a:active,
 .nav-item a.nuxt-link-active {
+  /*  nuxt class added to element a=which is active */
   color: red;
 }
 </style>
