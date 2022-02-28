@@ -1,7 +1,9 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <button @click="$router.push('/admin/new-post')">Create Post</button>
+      <AppButton @click="$router.push('/admin/new-post')">
+        Create Post
+      </AppButton>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
@@ -13,8 +15,10 @@
 
 <script>
 export default {
+  layout: 'admin',
   components: {
     PostList: require('~/components/Posts/PostList.vue').default,
+    AppButton: require('~/components/UI/AppButton.vue').default,
   },
 }
 </script>

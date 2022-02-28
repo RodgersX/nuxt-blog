@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  layout: 'admin',
   components: {
     AdminPostForm: require('~/components/Admin/AdminPostForm.vue').default,
   },
