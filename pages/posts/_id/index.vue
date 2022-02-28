@@ -1,12 +1,14 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">Title of the Post</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Last updated on XXX</div>
-        <div class="post-detail">Written by NAME</div>
+        <div class="post-detail">
+          Last updated on {{ loadedPost.updatedDate }}
+        </div>
+        <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
-      <p class="post-content">Actual content of post</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
     <section class="feedback">
       <p>
@@ -18,6 +20,27 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  asyncData(ctx, cb) {
+    setTimeout(() => {
+      cb(null, {
+        loadedPost: {
+          id: 1,
+          title: `First post (ID: "${ctx.params.id}")`,
+          previewText: 'This is our first post',
+          author: 'Mawira',
+          updatedDate: new Date(),
+          content: 'Some dummy text which is not the preview text',
+          thumbnail:
+            'https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9',
+        },
+      })
+    }, 1000)
+  },
+}
+</script>
 
 <style scoped>
 .single-post-page {

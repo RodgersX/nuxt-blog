@@ -19,7 +19,7 @@ export default {
 
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true,
     },
     isAdmin: {

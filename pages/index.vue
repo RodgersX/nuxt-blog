@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -12,6 +12,37 @@ export default {
   components: {
     PostList: require('~/components/Posts/PostList.vue').default,
   },
+
+  // data() {
+  //   return {
+  //     loadedPosts: [],
+  //   }
+  // },
+  asyncData(context, cb) {
+    console.log(context)
+    setTimeout(() => {
+      cb(null, {
+        loadedPosts: [
+          {
+            id: 1,
+            title: 'First Post',
+            previewText: 'This is our first post',
+            thumbnail:
+              'https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9',
+          },
+          {
+            id: 2,
+            title: 'Second Post',
+            previewText: 'This is our second post',
+            thumbnail:
+              'https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9',
+          },
+        ],
+      })
+    }, 1500)
+  },
+
+  created() {},
 }
 </script>
 

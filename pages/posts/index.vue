@@ -1,6 +1,6 @@
 <template>
   <div class="posts-page">
-    <PostList />
+    <PostList :posts="posts"/>
   </div>
 </template>
 
@@ -8,6 +8,12 @@
 export default {
   components: {
     PostList: require('~/components/Posts/PostList.vue').default,
+  },
+
+  data() {
+    return {
+      posts: [],
+    }
   },
 }
 </script>
