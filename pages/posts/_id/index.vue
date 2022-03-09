@@ -22,22 +22,20 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  asyncData(ctx, cb) {
-    setTimeout(() => {
-      cb(null, {
-        loadedPost: {
-          id: 1,
-          title: `First post (ID: "${ctx.params.id}")`,
-          previewText: 'This is our first post',
-          author: 'Mawira',
-          updatedDate: new Date(),
-          content: 'Some dummy text which is not the preview text',
-          thumbnail:
-            'https://institute.global/sites/default/files/styles/teaser_large/public/2021-06/GettyImages-1165900389.jpg?itok=f-DcPSZ9',
-        },
+  asyncData(context) {
+    return axios
+      .get(
+        `https://nuxt-blog-c6984-default-rtdb.firebaseio.com/posts/${context.params.id}.json`
+      )
+      .then((res) => {
+        return {
+          loadedPost: res.data,
+        }
       })
-    }, 1000)
+      .catch((e) => context.error(e))
   },
 }
 </script>

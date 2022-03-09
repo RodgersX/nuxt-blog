@@ -1,6 +1,6 @@
 <template>
   <div class="posts-page">
-    <PostList :posts="posts"/>
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -10,11 +10,11 @@ export default {
     PostList: require('~/components/Posts/PostList.vue').default,
   },
 
-  data() {
-    return {
-      posts: [],
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
     }
-  },
+  }
 }
 </script>
 
