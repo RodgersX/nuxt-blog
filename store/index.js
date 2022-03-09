@@ -14,7 +14,7 @@ const createStore = () => {
     actions: {
       nuxtServerInit({ commit }, context) {
         return axios
-          .get('https://nuxt-blog-c6984-default-rtdb.firebaseio.com/posts.json')
+          .get(`${process.env.baseUrl}/posts.json`)
           .then((res) => {
             const postsArray = []
             for (let key in res.data) {

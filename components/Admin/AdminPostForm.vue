@@ -34,11 +34,6 @@ export default {
     },
   },
 
-  components: {
-    AppControlInput: require('~/components/UI/AppControlInput.vue').default,
-    AppButton: require('~/components/UI/AppButton.vue').default,
-  },
-
   data() {
     return {
       editedPost: this.post

@@ -18,9 +18,7 @@ export default {
 
   asyncData(context) {
     return axios
-      .get(
-        `https://nuxt-blog-c6984-default-rtdb.firebaseio.com/posts/${context.params.id}.json`
-      )
+      .get(`${process.env.baseUrl}/posts/${context.params.id}.json`)
       .then((res) => {
         return {
           loadedPost: res.data,
@@ -33,7 +31,7 @@ export default {
     onSubmitted(editedPost) {
       axios
         .put(
-          `https://nuxt-blog-c6984-default-rtdb.firebaseio.com/posts/${this.$route.params.id}.json`,
+          `${process.env.baseUrl}/posts/${this.$route.params.id}.json`,
           editedPost
         )
         .then((res) => {

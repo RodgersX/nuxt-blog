@@ -6,9 +6,6 @@
 
 <script>
 export default {
-  components: {
-    PostList: require('~/components/Posts/PostList.vue').default,
-  },
 
   computed: {
     loadedPosts() {

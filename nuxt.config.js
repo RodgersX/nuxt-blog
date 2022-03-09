@@ -1,20 +1,24 @@
 export default {
+  mode: 'universal',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt-blog',
+    title: 'WD Blog',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'My cool Web development blog',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      // { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap',
@@ -22,11 +26,19 @@ export default {
     ],
   },
 
+  loading: {
+    color: '#00FF00',
+    height: '4px',
+    duration: 5000,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/styles/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/core-components.js'
+  ], 
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -47,5 +59,16 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, ctx) {},
+  },
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      'https://nuxt-blog-c6984-default-rtdb.firebaseio.com',
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in',
+  },
 }

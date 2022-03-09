@@ -16,10 +16,6 @@
 <script>
 export default {
   layout: 'admin',
-  components: {
-    PostList: require('~/components/Posts/PostList.vue').default,
-    AppButton: require('~/components/UI/AppButton.vue').default,
-  },
 
   computed: {
     loadedPosts() {

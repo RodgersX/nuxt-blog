@@ -12,7 +12,7 @@
     </section>
     <section class="feedback">
       <p>
-        Let me know what you think aboutthe post, send a mail to
+        Let me know what you think about the post, send a mail to
         <a href="mailto:feedback@my-awesome-domain.com"
           >feedback@my-awesome-domain.com</a
         >
@@ -28,7 +28,7 @@ export default {
   asyncData(context) {
     return axios
       .get(
-        `https://nuxt-blog-c6984-default-rtdb.firebaseio.com/posts/${context.params.id}.json`
+        `${process.env.baseUrl}/posts/${context.params.id}.json`
       )
       .then((res) => {
         return {
@@ -37,6 +37,10 @@ export default {
       })
       .catch((e) => context.error(e))
   },
+
+  head: {
+    title: 'A Blog Post'
+  }
 }
 </script>
 
